@@ -41,7 +41,7 @@ export const quiz = {
         { text: 'Sonu', correct: true },
         { text: 'Sonu, obviously', correct: true },
         { text: 'Sonu (scientifically proven)', correct: true },
-        { text: 'Him', reaction: 'HAHAHA good one. Try again 😂' },
+        { text: 'Not Sonu, surely 😇', reaction: 'HAHAHA good one. Try again 😂' },
       ],
     },
   ],
