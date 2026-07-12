@@ -1,7 +1,7 @@
 # Written in the Stars — for Sonu ✨
 
 A cinematic, scrolling birthday story for Sakshi ("Sonu") — eight scenes under a
-living starfield: the first hello at Pradiba College, a four-year timeline, the
+living starfield: the first hello at Prathibha College, a four-year timeline, the
 2 AM talks, the storms, a field guide to her favourite things, a photo gallery,
 and a finale with candles to blow out and a wish to make.
 

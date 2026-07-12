@@ -17,9 +17,9 @@
   --glass: rgba(255, 255, 255, 0.55);
   --glass-border: rgba(255, 255, 255, 0.75);
   --shadow-soft: 0 14px 40px rgba(190, 120, 150, 0.18);
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-hand: 'Caveat', cursive;
-  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-serif: 'Fraunces Variable', Georgia, serif;
+  --font-hand: 'Dancing Script Variable', cursive;
+  --font-sans: 'Nunito Variable', system-ui, sans-serif;
 }
 
 * {
@@ -93,24 +93,50 @@ body {
 
 .scene h1 {
   font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: clamp(1.7rem, 6.8vw, 2.7rem);
-  line-height: 1.18;
+  font-weight: 620;
+  font-variation-settings: 'SOFT' 90, 'WONK' 0;
+  font-optical-sizing: auto;
+  font-size: clamp(1.85rem, 7.4vw, 2.9rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
   text-wrap: balance;
-  max-width: 26ch;
+  max-width: 24ch;
 }
 
 .scene .sub {
   font-family: var(--font-hand);
-  font-size: clamp(1.25rem, 4.6vw, 1.55rem);
-  color: var(--ink-soft);
-  max-width: 32ch;
+  font-weight: 550;
+  font-size: clamp(1.4rem, 5vw, 1.7rem);
+  line-height: 1.35;
+  color: #7d6f76;
+  max-width: 30ch;
 }
 
 .eyebrow {
   font-family: var(--font-hand);
-  font-size: 1.4rem;
+  font-weight: 600;
+  font-size: 1.55rem;
   color: var(--accent);
+}
+
+.level-tag {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 0.34rem 0.85rem;
+  box-shadow: 0 4px 12px rgba(190, 120, 150, 0.12);
+}
+
+.scene.dark .level-tag {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* progress chip */
@@ -119,9 +145,11 @@ body {
   top: 1rem;
   left: 1rem;
   z-index: 50;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink-soft);
   background: var(--glass);
   border: 1px solid var(--glass-border);
@@ -142,8 +170,10 @@ button {
 }
 
 .btn {
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-weight: 800;
   font-size: 1rem;
+  letter-spacing: 0.015em;
   color: #fff;
   background: linear-gradient(120deg, var(--accent), var(--accent-deep));
   border-radius: 999px;
@@ -194,7 +224,9 @@ button {
 }
 
 .intro-title {
-  font-size: clamp(3rem, 14vw, 5rem) !important;
+  font-style: italic;
+  font-weight: 680 !important;
+  font-size: clamp(3.2rem, 15vw, 5.4rem) !important;
   background: linear-gradient(120deg, var(--accent), #b085d6 60%, var(--gold));
   -webkit-background-clip: text;
   background-clip: text;
@@ -215,8 +247,10 @@ button {
 /* ————— quiz ————— */
 .quiz-q {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 90, 'WONK' 0;
+  font-size: 1.3rem;
+  line-height: 1.35;
   margin-bottom: 1.1rem;
 }
 
@@ -226,8 +260,9 @@ button {
 }
 
 .quiz-opt {
+  font-family: var(--font-sans);
   font-size: 0.98rem;
-  font-weight: 550;
+  font-weight: 700;
   color: var(--ink);
   text-align: left;
   background: rgba(255, 255, 255, 0.72);
@@ -277,7 +312,8 @@ button {
   translate: -50% 0;
   z-index: 60;
   font-family: var(--font-hand);
-  font-size: 1.3rem;
+  font-weight: 600;
+  font-size: 1.4rem;
   color: var(--ink);
   background: var(--glass);
   border: 1px solid var(--glass-border);
@@ -326,13 +362,16 @@ button {
 
 .tcard .when {
   font-family: var(--font-hand);
-  font-size: 1.25rem;
+  font-weight: 600;
+  font-size: 1.35rem;
   color: var(--accent);
 }
 
 .tcard h3 {
   font-family: var(--font-serif);
-  font-size: 1.45rem;
+  font-weight: 640;
+  font-variation-settings: 'SOFT' 90, 'WONK' 0;
+  font-size: 1.5rem;
 }
 
 .tcard p {
@@ -408,7 +447,8 @@ button {
 
 .fact-chip {
   font-family: var(--font-hand);
-  font-size: 1.22rem;
+  font-weight: 600;
+  font-size: 1.3rem;
   color: var(--ink);
   background: var(--glass);
   border: 1px solid var(--glass-border);
@@ -459,7 +499,8 @@ button {
 
 .polaroid .caption {
   font-family: var(--font-hand);
-  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 4.5vw, 1.55rem);
   color: #5c5148;
   padding-top: 2.5%;
 }
@@ -489,7 +530,8 @@ button {
 
 .star-count {
   font-family: var(--font-hand);
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.35rem;
   color: var(--gold);
   min-height: 1.4em;
 }
@@ -691,21 +733,25 @@ button {
 
 .letter-card p {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
-  line-height: 1.65;
+  font-weight: 420;
+  font-variation-settings: 'SOFT' 100, 'WONK' 0;
+  font-size: 0.87rem;
+  line-height: 1.7;
   color: #5a4f55;
   margin-bottom: 0.6rem;
 }
 
 .letter-card p:first-of-type {
   font-family: var(--font-hand);
-  font-size: 1.35rem;
+  font-weight: 650;
+  font-size: 1.55rem;
   color: var(--ink);
 }
 
 .letter-card .signoff {
   font-family: var(--font-hand);
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.3rem;
   color: var(--accent-deep);
   text-align: right;
   margin-top: 0.4rem;
@@ -732,7 +778,9 @@ button {
 }
 
 .finale-title {
-  font-size: clamp(2.5rem, 12vw, 4.4rem) !important;
+  font-style: italic;
+  font-weight: 680 !important;
+  font-size: clamp(2.6rem, 12.5vw, 4.6rem) !important;
   background: linear-gradient(120deg, var(--accent), #b085d6 55%, var(--gold));
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -799,7 +847,8 @@ button {
 .trail-word {
   position: fixed;
   font-family: var(--font-hand);
-  font-size: 1.05rem;
+  font-weight: 600;
+  font-size: 1.15rem;
   color: var(--accent);
   pointer-events: none;
   z-index: 9999;
@@ -842,7 +891,8 @@ button {
   left: 0;
   right: 0;
   font-family: var(--font-hand);
-  font-size: 1.05rem;
+  font-weight: 600;
+  font-size: 1.15rem;
   color: var(--ink-soft);
 }
 

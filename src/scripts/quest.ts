@@ -72,6 +72,7 @@ const scenes: Array<() => string> = [
   () => {
     state.quizIndex = 0;
     return `
+      <span class="level-tag">level 1</span>
       <h1>${quiz.heading}</h1>
       <p class="sub">${quiz.sub}</p>
       <div class="card-glass" id="quiz-card">${quizCard()}</div>
@@ -82,6 +83,7 @@ const scenes: Array<() => string> = [
   // 2 · timeline cards
   () => {
     return `
+      <span class="level-tag">level 2</span>
       <h1>${timeline.heading}</h1>
       <p class="sub">${timeline.sub}</p>
       <div class="tcard-stage">
@@ -114,6 +116,7 @@ const scenes: Array<() => string> = [
       { top: '70%', left: '52%', c: '#7fb8e6', d: '1.3s' },
     ];
     return `
+      <span class="level-tag">level 3</span>
       <h1>${balloons.heading}</h1>
       <p class="sub">${balloons.sub}</p>
       <div class="balloon-field">
@@ -135,6 +138,7 @@ const scenes: Array<() => string> = [
   () => {
     state.tossed = 0;
     return `
+      <span class="level-tag">level 4</span>
       <h1>${gallery.heading}</h1>
       <p class="sub">${gallery.sub}</p>
       <div class="polaroid-stack">
@@ -159,6 +163,7 @@ const scenes: Array<() => string> = [
     setTimeout(initStarry, 80);
     return `
       <canvas id="constellation-canvas"></canvas>
+      <span class="level-tag">level 5</span>
       <h1>${starry.heading}</h1>
       <p class="sub">${starry.sub}</p>
       <p class="star-count" id="star-count"></p>
@@ -170,6 +175,7 @@ const scenes: Array<() => string> = [
   () => {
     state.candlesOut = 0;
     return `
+      <span class="level-tag">level 6</span>
       <h1>${cake.heading}</h1>
       <p class="sub" id="cake-sub">${cake.sub}</p>
       <div class="cake-stage">
@@ -195,6 +201,7 @@ const scenes: Array<() => string> = [
 
   // 7 · envelope letter
   () => `
+    <span class="level-tag">level 7</span>
     <h1>${letter.heading}</h1>
     <p class="sub">${letter.sub}</p>
     <div class="envelope-wrapper" data-action="envelope">
@@ -214,6 +221,7 @@ const scenes: Array<() => string> = [
   () => {
     state.noCount = 0;
     return `
+      <span class="level-tag">final level</span>
       <h1>${question.heading}</h1>
       <p class="sub" style="font-size: clamp(1.5rem, 6vw, 2rem); color: var(--ink);">${question.q}</p>
       <div class="btn-row">

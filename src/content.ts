@@ -20,7 +20,7 @@ export const quiz = {
     {
       q: 'Where did this legendary story begin?',
       options: [
-        { text: 'Pradiba College 🎓', correct: true },
+        { text: 'Prathibha College 🎓', correct: true },
         { text: 'Hogwarts 🪄', reaction: 'You wish 😂 try again.' },
         { text: 'Some boring place', reaction: 'Excuse me?? Nothing about us is boring.' },
         { text: 'A biryani stall 🍛', reaction: 'Emotionally? yes. Technically? no. 😌' },
@@ -48,12 +48,12 @@ export const quiz = {
 };
 
 export const timeline = {
-  heading: 'level 2: our story so far 📖',
+  heading: 'our story so far 📖',
   sub: 'tap the card to turn the page',
   done: 'four years and the story is still going ✨',
   milestones: [
     {
-      when: 'Pradiba College · BSc days',
+      when: 'Prathibha College · BSc days',
       label: 'The first hello',
       text: 'Somewhere between lectures and labs, a chatterbox found her favourite audience.',
       emoji: '👋',
@@ -92,7 +92,7 @@ export const timeline = {
 };
 
 export const balloons = {
-  heading: 'level 3: pop the balloons 🎈',
+  heading: 'pop the balloons 🎈',
   sub: 'each one hides a certified Sonu fact',
   done: 'all facts verified. no lies detected ✨',
   facts: [
@@ -106,7 +106,7 @@ export const balloons = {
 };
 
 export const gallery = {
-  heading: 'level 4: our moments 📸',
+  heading: 'our moments 📸',
   sub: 'toss the polaroids to see them all',
   done: 'four years of photographic evidence 🥹',
 };
@@ -118,7 +118,7 @@ export const starry = {
 };
 
 export const cake = {
-  heading: 'level 6: make it official 🎂',
+  heading: 'make it official 🎂',
   sub: 'tap each flame to blow out your candles',
   done: 'the sky saw everything. it approves ✨',
 };
@@ -128,7 +128,7 @@ export const letter = {
   sub: 'tap the envelope',
   lines: [
     'Dear Sonu,',
-    'Four years ago, a talkative girl at Pradiba College decided a quiet corner of the world needed narrating. Lucky corner — it was mine.',
+    'Four years ago, a talkative girl at Prathibha College decided a quiet corner of the world needed narrating. Lucky corner — it was mine.',
     'The trips, the 2 AM talks, the storms we out-laughed — every moment with you has felt like the good part of the story.',
     'So today: may your biryani be perfectly spiced, may your stories never run out of listeners, and may this year love you as much as your people do.',
     'Happy Birthday, Sakshi. ✨',
