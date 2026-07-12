@@ -276,6 +276,10 @@ function renderScene() {
     bgFront.style.opacity = '0';
     requestAnimationFrame(() => (bgFront.style.opacity = '1'));
 
+    // the runaway No button re-parents itself onto <body>; never let it
+    // (or any surrendered version of it) survive into the next scene
+    document.querySelectorAll('body > .no-btn').forEach((b) => b.remove());
+
     const scene = document.createElement('div');
     scene.className = 'scene' + (state.scene === 5 ? ' dark' : '');
     scene.innerHTML = `<div class="scene-content">${scenes[state.scene]()}</div>`;
@@ -502,7 +506,9 @@ document.addEventListener('touchstart', (e) => {
 }, { passive: true });
 
 function sayYes() {
-  document.querySelector<HTMLElement>('[data-action="no"]')?.remove();
+  // the runaway button may have surrendered (its action becomes "yes") and it
+  // lives on document.body — remove it by class, whatever state it's in
+  document.querySelectorAll('.no-btn').forEach((b) => b.remove());
   heartsExplosion();
   setTimeout(nextScene, 1900);
 }
