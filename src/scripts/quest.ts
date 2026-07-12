@@ -277,7 +277,7 @@ function renderScene() {
 
     levelChip.textContent =
       state.scene === 0
-        ? 'for sonu ✨'
+        ? 'for sakshi ✨'
         : state.scene === scenes.length - 1
           ? 'you made it 🎉'
           : `level ${state.scene} / ${scenes.length - 2}`;

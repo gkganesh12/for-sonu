@@ -7,7 +7,7 @@ export const site = {
 
 export const intro = {
   eyebrow: 'a special delivery for',
-  title: 'Sonu',
+  title: 'Sakshi',
   sub: 'hi… I made a little game for your birthday.',
   button: 'open it 🎁',
 };
