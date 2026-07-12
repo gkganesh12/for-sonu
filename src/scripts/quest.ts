@@ -696,7 +696,7 @@ function initStarry() {
 
 /* ————————————————— music ————————————————— */
 
-const MUSIC_SRC = '/audio/ambient.mp3';
+const MUSIC_SRC = `${import.meta.env.BASE_URL}/audio/ambient.mp3`.replace(/\/{2,}/g, '/');
 let audio: HTMLAudioElement | null = null;
 
 function fadeTo(vol: number, then?: () => void) {
