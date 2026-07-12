@@ -81,6 +81,15 @@ await shot('09-card-flipped');
 await scrollToSection('#moments');
 await sleep(800);
 await shot('10-moments');
+// open + close the lightbox if real photos are present
+const hasPhotos = await page.$('.polaroid:not(.placeholder)');
+if (hasPhotos) {
+  await hasPhotos.click();
+  await sleep(700);
+  await shot('10b-lightbox');
+  await page.click('#lightbox .lb-close');
+  await sleep(400);
+}
 
 await scrollToSection('#finale');
 await sleep(900);

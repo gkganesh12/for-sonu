@@ -18,6 +18,7 @@ const photos = Object.entries(modules)
       .split('/')
       .pop()!
       .replace(/\.[^.]+$/, '')
+      .replace(/^\d+[-_ ]*/, '')
       .replace(/[-_]+/g, ' '),
   }));
 ---
@@ -38,7 +39,14 @@ const photos = Object.entries(modules)
               style={`--float-delay: ${(i % 5) * 0.9}s`}
               aria-label={`Open photo: ${photo.caption}`}
             >
-              <Image src={photo.src} alt={photo.caption} width={640} height={640} />
+              <Image
+                src={photo.src}
+                alt={photo.caption}
+                width={640}
+                height={640}
+                fit="cover"
+                layout="fixed"
+              />
               <span class="caption">{photo.caption}</span>
             </button>
           ))

@@ -634,8 +634,9 @@ main {
 
 .polaroid img {
   display: block;
-  width: 100%;
-  aspect-ratio: 1;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 !important;
   object-fit: cover;
   border-radius: 2px;
 }
@@ -678,6 +679,7 @@ main {
   border: none;
   border-radius: 10px;
   padding: 0;
+  margin: auto;
   background: #0b0f20;
   max-width: min(92vw, 780px);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
