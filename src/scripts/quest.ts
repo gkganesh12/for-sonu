@@ -90,7 +90,7 @@ const scenes: Array<() => string> = [
         ${timeline.milestones
           .map(
             (m, i) => `
-          <div class="tcard" data-action="tcard" style="z-index:${timeline.milestones.length - i}">
+          <div class="tcard${i > 0 ? ' pos-' + Math.min(i, 3) : ''}" data-action="tcard" style="z-index:${timeline.milestones.length - i}">
             <span class="emoji">${m.emoji}</span>
             <span class="when">${m.when}</span>
             <h3>${m.label}</h3>
@@ -278,7 +278,7 @@ function renderScene() {
 
     const scene = document.createElement('div');
     scene.className = 'scene' + (state.scene === 5 ? ' dark' : '');
-    scene.innerHTML = scenes[state.scene]();
+    scene.innerHTML = `<div class="scene-content">${scenes[state.scene]()}</div>`;
     app.innerHTML = '';
     app.appendChild(scene);
     requestAnimationFrame(() => requestAnimationFrame(() => scene.classList.add('active')));
@@ -348,7 +348,16 @@ document.addEventListener('click', (e) => {
       } else {
         setTimeout(() => {
           const card = document.getElementById('quiz-card');
-          if (card) card.innerHTML = quizCard();
+          if (card) {
+            card.innerHTML = quizCard();
+            card.animate(
+              [
+                { opacity: 0, transform: 'translateY(10px)' },
+                { opacity: 1, transform: 'translateY(0)' },
+              ],
+              { duration: 320, easing: 'ease-out' }
+            );
+          }
         }, 650);
       }
     } else {
@@ -362,9 +371,15 @@ document.addEventListener('click', (e) => {
   }
 
   if (action === 'tcard') {
+    const waiting = [...document.querySelectorAll<HTMLElement>('.tcard:not(.gone)')];
+    if (target !== waiting[0]) return; // only the top card is tappable
     target.classList.add('gone');
-    const left = document.querySelectorAll('.tcard:not(.gone)').length;
-    if (left === 0) {
+    target.classList.remove('pos-1', 'pos-2', 'pos-3');
+    waiting.slice(1).forEach((card, i) => {
+      card.classList.remove('pos-1', 'pos-2', 'pos-3');
+      if (i > 0) card.classList.add(`pos-${Math.min(i, 3)}`);
+    });
+    if (waiting.length - 1 === 0) {
       toast(timeline.done);
       unlock();
     }
