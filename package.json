@@ -18,5 +18,8 @@
     "astro": "^7.0.7",
     "canvas-confetti": "^1.9.4",
     "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.3.0"
   }
 }

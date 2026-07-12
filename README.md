@@ -1,43 +1,51 @@
-# Astro Starter Kit: Minimal
+# Written in the Stars — for Sonu ✨
 
-```sh
-npm create astro@latest -- --template minimal
+A cinematic, scrolling birthday story for Sakshi ("Sonu") — eight scenes under a
+living starfield: the first hello at Pradiba College, a four-year timeline, the
+2 AM talks, the storms, a field guide to her favourite things, a photo gallery,
+and a finale with candles to blow out and a wish to make.
+
+## Run it
+
+```bash
+npm install
+npm run dev          # local preview at http://localhost:4321
+npm run build        # production build into dist/
+npm run preview -- --host   # preview the build, reachable from your phone on the same wifi
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+To open it on a phone on the same wifi, use `--host` and visit
+`http://<your-mac-ip>:4321`.
 
-## 🚀 Project Structure
+## Add your photos (the "Moments of us" chapter)
 
-Inside of your Astro project, you'll see the following folders and files:
+Drop photos into **`src/assets/moments/`** and rebuild — done.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+- The file name becomes the caption: `goa-trip.jpg` → *"goa trip"*
+- Alphabetical order controls position: `01-first-day.jpg`, `02-goa-trip.jpg`, …
+- Until then, elegant placeholder polaroids keep the chapter looking complete.
+
+## Edit any words
+
+All copy — every chapter, the timeline, the chat, the letter, the sign-off —
+lives in **`src/content.ts`**. Change text there, rebuild, nothing else needed.
+
+## Deploy (free, ~1 minute)
+
+```bash
+npx vercel deploy --prod     # or: npx netlify deploy --prod --dir dist
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Any static host works — the build is plain HTML/CSS/JS.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Verify after changes
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+npm run preview -- --host &
+node scripts/verify.mjs      # walks every scene at phone size, screenshots to /tmp/sonu-verify/
+```
 
-## 🧞 Commands
+## Credits
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Music: "Frozen Star" — Kevin MacLeod (incompetech.com), licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

@@ -1,0 +1,17 @@
+---
+import { arrival } from '../content';
+---
+
+<section class="scene" id="arrival">
+  <div class="scene-inner">
+    <p class="eyebrow" data-hero>{arrival.eyebrow}</p>
+    <h1 data-hero>{arrival.title}</h1>
+    <p class="subtitle" data-hero>
+      {arrival.subtitle.split('Sonu')[0]}<strong>Sonu</strong>
+    </p>
+    <p class="date" data-hero>{arrival.date}</p>
+    <button class="begin-btn" id="begin" data-hero>{arrival.begin}</button>
+    <p class="hint" data-hero>{arrival.hint}</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</section>

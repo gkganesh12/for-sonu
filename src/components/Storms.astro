@@ -1,0 +1,16 @@
+---
+import { storms } from '../content';
+---
+
+<section class="scene" id="storms">
+  <div class="storm-bg" aria-hidden="true"></div>
+  <div class="rain" aria-hidden="true"></div>
+  <div class="flash" aria-hidden="true"></div>
+  <div class="scene-inner">
+    <span class="chapter-tag" data-reveal>{storms.tag}</span>
+    <h2 data-reveal>{storms.heading}</h2>
+    <p class="storm-line before">{storms.lineBefore}</p>
+    <p class="storm-line after">{storms.lineAfter}</p>
+    <p class="small" data-storm-small>{storms.small}</p>
+  </div>
+</section>

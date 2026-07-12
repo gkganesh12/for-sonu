@@ -1,17 +1,59 @@
 ---
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/playfair-display/400-italic.css';
+import '@fontsource/caveat/500.css';
+import '@fontsource/caveat/700.css';
+import '@fontsource-variable/inter';
+import '../styles/global.css';
 
+import { site, finale } from '../content';
+import Arrival from '../components/Arrival.astro';
+import Beginning from '../components/Beginning.astro';
+import Timeline from '../components/Timeline.astro';
+import NightTalks from '../components/NightTalks.astro';
+import Storms from '../components/Storms.astro';
+import SoSonu from '../components/SoSonu.astro';
+import Moments from '../components/Moments.astro';
+import Finale from '../components/Finale.astro';
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={site.description} />
+    <meta name="theme-color" content="#04060f" />
+    <meta property="og:title" content={site.title} />
+    <meta property="og:description" content={site.description} />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{site.title}</title>
+  </head>
+  <body>
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <button id="music-toggle" type="button" aria-label="Toggle music">♪</button>
+
+    <main>
+      <Arrival />
+      <Beginning />
+      <Timeline />
+      <NightTalks />
+      <Storms />
+      <SoSonu />
+      <Moments />
+      <Finale />
+    </main>
+
+    <footer>
+      {finale.footer}
+      <span class="music-credit">{finale.musicCredit}</span>
+    </footer>
+
+    <script>
+      import '../scripts/experience';
+    </script>
+  </body>
 </html>

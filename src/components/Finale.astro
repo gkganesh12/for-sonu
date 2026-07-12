@@ -1,0 +1,43 @@
+---
+import { finale } from '../content';
+---
+
+<section class="scene" id="finale">
+  <div class="scene-inner">
+    <span class="chapter-tag" data-reveal>{finale.tag}</span>
+    <h2 data-reveal>{finale.heading}</h2>
+
+    <div class="cake-stage" data-reveal>
+      <div class="cake" role="group" aria-label="Birthday cake with five candles">
+        <div class="candles">
+          {[1, 2, 3, 4, 5].map((n) => (
+            <button class="candle" type="button" aria-label={`Blow out candle ${n}`}>
+              <span class="flame" aria-hidden="true"></span>
+              <span class="smoke" aria-hidden="true"></span>
+              <span class="wick" aria-hidden="true"></span>
+              <span class="stick" aria-hidden="true"></span>
+            </button>
+          ))}
+        </div>
+        <div class="tier top"><span class="sprinkles" aria-hidden="true"></span></div>
+        <div class="tier bottom"><span class="sprinkles" aria-hidden="true"></span></div>
+        <div class="plate" aria-hidden="true"></div>
+      </div>
+      <p class="cake-hint" data-cake-hint data-done={finale.cakeDone}>{finale.cakeHint}</p>
+    </div>
+
+    <div class="letter" data-reveal>
+      <p class="letter-title">{finale.letterTitle}</p>
+      {finale.letter.map((line) => <p data-letter-line>{line}</p>)}
+      <p class="signoff">{finale.signoff}</p>
+      <p class="signoff-sub">{finale.signoffSub}</p>
+    </div>
+
+    <div class="big-wish">
+      <h2 data-reveal>{finale.bigWish}</h2>
+      <button class="wish-btn" id="wish" data-reveal data-done-label={finale.wishDone}>
+        {finale.wishButton}
+      </button>
+    </div>
+  </div>
+</section>

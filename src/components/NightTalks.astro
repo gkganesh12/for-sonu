@@ -1,0 +1,22 @@
+---
+import { nightTalks } from '../content';
+---
+
+<section class="scene" id="talks">
+  <div class="moon" aria-hidden="true"></div>
+  <div class="scene-inner">
+    <span class="chapter-tag" data-reveal>{nightTalks.tag}</span>
+    <h2 data-reveal>{nightTalks.heading}</h2>
+    <p data-reveal>{nightTalks.intro}</p>
+
+    <div class="chat" role="log" aria-label="A late-night chat between us">
+      {nightTalks.chat.map((line) => (
+        <div class={`bubble ${line.from}`}>
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="msg">{line.text}</span>
+        </div>
+      ))}
+    </div>
+    <p class="chat-stamp" data-reveal>{nightTalks.timestamp}</p>
+  </div>
+</section>
