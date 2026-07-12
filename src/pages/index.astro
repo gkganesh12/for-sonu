@@ -1,21 +1,38 @@
 ---
 import '@fontsource/playfair-display/400.css';
 import '@fontsource/playfair-display/700.css';
-import '@fontsource/playfair-display/400-italic.css';
 import '@fontsource/caveat/500.css';
 import '@fontsource/caveat/700.css';
 import '@fontsource-variable/inter';
-import '../styles/global.css';
+import '../styles/quest.css';
 
-import { site, finale } from '../content';
-import Arrival from '../components/Arrival.astro';
-import Beginning from '../components/Beginning.astro';
-import Timeline from '../components/Timeline.astro';
-import NightTalks from '../components/NightTalks.astro';
-import Storms from '../components/Storms.astro';
-import SoSonu from '../components/SoSonu.astro';
-import Moments from '../components/Moments.astro';
-import Finale from '../components/Finale.astro';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { site } from '../content';
+
+// Photos drop-zone: src/assets/moments/ — filename becomes the caption,
+// numeric prefixes control order and are stripped.
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/moments/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP}',
+  { eager: true }
+);
+
+const photos = await Promise.all(
+  Object.entries(modules)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(async ([path, mod]) => {
+      const img = await getImage({ src: mod.default, width: 640, height: 640, fit: 'cover' });
+      return {
+        src: img.src,
+        caption: path
+          .split('/')
+          .pop()!
+          .replace(/\.[^.]+$/, '')
+          .replace(/^\d+[-_ ]*/, '')
+          .replace(/[-_]+/g, ' '),
+      };
+    })
+);
 ---
 
 <!doctype html>
@@ -24,7 +41,7 @@ import Finale from '../components/Finale.astro';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={site.description} />
-    <meta name="theme-color" content="#04060f" />
+    <meta name="theme-color" content="#fce8ef" />
     <meta property="og:title" content={site.title} />
     <meta property="og:description" content={site.description} />
     <meta name="robots" content="noindex" />
@@ -32,28 +49,19 @@ import Finale from '../components/Finale.astro';
     <title>{site.title}</title>
   </head>
   <body>
-    <canvas id="starfield" aria-hidden="true"></canvas>
+    <div id="bg-back"></div>
+    <div id="bg-front"></div>
 
+    <div id="level-chip">for sonu ✨</div>
     <button id="music-toggle" type="button" aria-label="Toggle music">♪</button>
 
-    <main>
-      <Arrival />
-      <Beginning />
-      <Timeline />
-      <NightTalks />
-      <Storms />
-      <SoSonu />
-      <Moments />
-      <Finale />
-    </main>
+    <div id="app">
+      <main id="scene-container"></main>
+    </div>
 
-    <footer>
-      {finale.footer}
-      <span class="music-credit">{finale.musicCredit}</span>
-    </footer>
-
+    <script type="application/json" id="photo-data" set:html={JSON.stringify(photos)} />
     <script>
-      import '../scripts/experience';
+      import '../scripts/quest';
     </script>
   </body>
 </html>

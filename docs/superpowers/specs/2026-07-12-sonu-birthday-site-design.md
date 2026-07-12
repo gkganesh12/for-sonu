@@ -79,3 +79,19 @@ an 8-scene story + photo pipeline).
 
 Local preview for the user tonight; deployment (Vercel/Netlify free tier) only
 on the user's go-ahead. Photos: user drops files in `src/assets/moments/`.
+
+---
+
+## Redesign addendum (2026-07-12, evening)
+
+User verdict on v1 scroll-cinema: not good, wanted it **lighter and gamified
+like his old project** (github.com/gkganesh12/love — pastel scene-based
+click-through with mini-game gates). Rebuilt as **"Sonu's Birthday Quest"**:
+10 tap-through levels — intro gift → identity quiz → timeline card stack →
+balloon-pop facts → polaroid toss (real photos) → connect-the-stars (the one
+dark scene) → candle blowing → envelope letter → runaway-No "best friends
+forever?" → shimmer finale with wish + replay. Pastel glass design system
+(quest.css), vanilla scene engine (quest.ts), GSAP removed, ambient petals /
+click sparkles / heart cursor with trail words / pointer-following radial
+backgrounds ported from the old site. Verified end-to-end by playing the whole
+quest headlessly at phone size.
