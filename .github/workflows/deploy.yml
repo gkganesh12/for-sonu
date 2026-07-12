@@ -13,9 +13,14 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      BASE_PATH: /for-sonu
+      SITE_URL: https://gkganesh12.github.io
     steps:
       - uses: actions/checkout@v4
       - uses: withastro/action@v3
+        with:
+          node-version: 22
 
   deploy:
     needs: build

@@ -30,13 +30,16 @@ Drop photos into **`src/assets/moments/`** and rebuild — done.
 All copy — every chapter, the timeline, the chat, the letter, the sign-off —
 lives in **`src/content.ts`**. Change text there, rebuild, nothing else needed.
 
-## Deploy (free, ~1 minute)
+## Deploy
 
-```bash
-npx vercel deploy --prod     # or: npx netlify deploy --prod --dir dist
-```
+**Render (recommended):** the repo has a `render.yaml` blueprint. In the Render
+dashboard: **New + → Blueprint → connect `gkganesh12/for-sonu` → Apply**.
+Render builds `npm ci && npm run build` and serves `dist/` — done.
 
-Any static host works — the build is plain HTML/CSS/JS.
+**GitHub Pages:** already wired via `.github/workflows/deploy.yml` — every push
+to `master` builds and deploys to `/for-sonu` (base path set by the workflow).
+
+Any other static host works too — the build is plain HTML/CSS/JS in `dist/`.
 
 ## Verify after changes
 

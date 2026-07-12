@@ -1,0 +1,19 @@
+# Render Blueprint — deploys the site as a free static site.
+# In Render: New + → Blueprint → connect this repo → Apply.
+services:
+  - type: web
+    runtime: static
+    name: for-sonu
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+    headers:
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
